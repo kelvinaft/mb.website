@@ -1,0 +1,310 @@
+// $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,700);
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+
+// mb fonts
+$font-pacifico: 'Pacifico', cursive;
+$font-lato: 'Lato', Calibri, Arial, sans-serif;
+$font-gibson: url("../fonts/Gibson-SemiBold-webfont.woff");
+
+@font-face{
+    font-family: "gibson";
+    src: url("../fonts/Gibson-SemiBold-webfont.woff");
+}
+
+.mb-font-pacific{
+    font-family: $font-pacifico;
+}
+
+// mbx colors
+$cor-red-1 : #FF3333;
+$cor-blue-1 : #0099FF;
+$cor-yellow-1 : #FFCC66;
+$cor-orange-1: #f2992e;
+$cor-black-1: #2d2d2d;
+$cor-white-1: #f4f4f4;
+.mb-cor-orange{color: $cor-orange-1 !important;}
+.mb-cor-black{color: $cor-black-1 !important;}
+
+// bower:scss
+@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// endbower
+@function shadow($mb-shadow) {
+    @if $mb-shadow == 1 {
+        @return 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    } @else if $mb-shadow == 2{
+        @return 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    } @else if $mb-shadow == 3{
+        @return 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    } @else if $mb-shadow == 4{
+        @return 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }@else{
+        @return 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    }
+}
+small{
+    padding: 0;
+    margin: 0;
+}
+h1,h2,h3,h4,h5,h6{
+    align-items: center;
+    display: flex;
+    font-family: "gibson";
+    justify-content: center;
+    font-weight: 700;
+    margin: 0;
+    padding:0;
+}
+h1{font-size: 12vh;}
+h2{font-size: 9vh;}
+h3{font-size: 7vh;}
+h4{font-size: 5vh;}
+h5{font-size: 3vh;}
+h6{font-size: 2vh;}
+
+html,body{
+    font-family: "Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif;;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+a{
+    color: inherit;
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li{
+        margin: 0;
+        padding: 0;
+    }
+}
+/**** MB BUTTONS ****/
+.mb-btn{
+    border: none;
+    background: rgba(255,255,255,0.3);
+    border-width: 1px;
+    color: #fff;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 22px;
+    padding-top: 4px;
+    padding-bottom: 5px;
+    padding-left: 13px;
+    padding-right: 13px;
+    white-space: nowrap;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+.mb-logo{
+    cursor: pointer;
+    opacity: .8;
+    -webkit-transition: opacity .4s ease-in-out;
+    -moz-transition: opacity .4s ease-in-out;
+    transition: opacity .4s ease-in-out;
+}
+
+.mb-logo:hover{
+    opacity: 1;
+}
+.mb-container{
+    align-items: center;
+    background: $cor-orange-1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    -webkit-perspective: 1200px;
+    perspective: 1200px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+.mb-section{
+    padding-left: 1vw;
+    padding-right: 1vw;
+    width: 100%;
+}
+.mb-page{
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    visibility: hidden;
+}
+.mb-page-current{
+    visibility: visible;
+    z-index: 1;
+}
+.mb-page-2{
+    background: $cor-black-1;
+}
+/**** MB HEADER ****/
+header{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    position: absolute;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    ul{
+        display: flex;
+        li:not(:last-child){
+            margin-right: 1em;
+        }
+        li:last-child{
+            .mb-btn{
+                background: white;
+            }
+        }
+    }
+}
+.mb-float{
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+/**** MB BOODY ****/
+.mb-body{
+    align-items: center;
+    color: $cor-white-1;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+.mb-body-logo{
+    -webkit-animation: move-left .4s ease both;
+    animation:  move-left .4s ease both;
+    -webkit-animation-delay: .4s;
+    animation-delay: .4s;
+}
+.mb-body-title{
+    text-align: left;
+    -webkit-animation: move-right .4s ease both;
+    animation:  move-right .4s ease both;
+    -webkit-animation-delay: .4s;
+    animation-delay: .4s;
+}
+/**** MB FOOTER ****/
+.mb-footer{
+    background: $cor-black-1;
+    bottom: 0;
+    color: $cor-white-1;
+    text-align: center;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    position: absolute;
+     -webkit-animation: move-top .4s ease both;
+    animation:  move-top .4s ease both;
+    -webkit-animation-delay: .4s;
+    animation-delay: .4s;
+    .mb-foot-contact{
+        cursor: pointer !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+/**** LOGO ****/
+.mb-logo-svg{
+    height: 30px;
+    margin-bottom: .5em;
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    polygon,path{
+        fill: $cor-red-1;
+    }
+}
+/**** MB ANIMATIONS ****/
+.mb-page-moveToTop {
+    -webkit-animation: moveToTop .4s ease both;
+    animation: moveToTop .4s ease both;
+}
+.mb-page-moveFromBottom {
+    -webkit-animation: moveFromBottom .4s ease both;
+    animation: moveFromBottom .4s ease both;
+}
+.mb-page-moveToBottom {
+    -webkit-animation: moveToBottom .4s ease both;
+    animation: moveToBottom .4s ease both;
+}
+.mb-page-moveFromTop {
+    -webkit-animation: moveFromTop .4s ease both;
+    animation: moveFromTop .4s ease both;
+}
+@-webkit-keyframes moveToTop {
+    from { }
+    to { -webkit-transform: translateY(-100%); }
+}
+@keyframes moveToTop {
+    from { }
+    to { -webkit-transform: translateY(-100%); transform: translateY(-100%); }
+}
+@-webkit-keyframes moveFromBottom {
+    from { -webkit-transform: translateY(100%); }
+}
+@keyframes moveFromBottom {
+    from { -webkit-transform: translateY(100%); transform: translateY(100%); }
+}
+@-webkit-keyframes moveToBottom {
+    from { }
+    to { -webkit-transform: translateY(100%); }
+}
+@keyframes moveToBottom {
+    from { }
+    to { -webkit-transform: translateY(100%); transform: translateY(100%); }
+}
+@-webkit-keyframes moveFromTop {
+    from { -webkit-transform: translateY(-100%); }
+}
+@keyframes moveFromTop {
+    from { -webkit-transform: translateY(-100%); transform: translateY(-100%); }
+}
+@-webkit-keyframes move-right {
+    from { opacity: 0;-webkit-transform: translateX(0);transform: translateX(0);}
+    to { opacity: 1;-webkit-transform: translateX(50px);transform: translateX(50px); }
+}
+@keyframes move-right {
+    from { opacity: 0;-webkit-transform: translateX(0);transform: translateX(0);}
+    to { opacity: 1;-webkit-transform: translateX(50px);transform: translateX(50px); }
+}
+@-webkit-keyframes move-left {
+    from { opacity: 0;-webkit-transform: translateX(0);transform: translateX(0);}
+    to { opacity: 1;-webkit-transform: translateX(-50px);transform: translateX(-50px); }
+}
+@keyframes move-left {
+    from { opacity: 0;-webkit-transform: translateX(0);transform: translateX(0);}
+    to { opacity: 1;-webkit-transform: translateX(-50px);transform: translateX(-50px); }
+}
+@-webkit-keyframes move-top {
+    from {-webkit-transform: translateY(100%);transform: translateY(100%);}
+    to {;-webkit-transform: translateY(0);transform: translateY(0); }
+}
+@keyframes move-top {
+    from {;-webkit-transform: translateY(100%);transform: translateY(100%);}
+    to {;-webkit-transform: translateY(0);transform: translateY(0); }
+}
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    
+}
