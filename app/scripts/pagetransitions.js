@@ -4,7 +4,7 @@ var PageTransitions = (function() {
 		$pages = $container.children( 'article.mb-page' ),
 		$btnrandomcor = $('#mb-icon-rdm'),
 		$home = $('#mb-home'),
-		$foo = $('#mb-foo'),
+		$foo = $('#mb-foo, #mb-contact'),
 		$btnClass = '',
 		pagesCount = $pages.length,
 		current = 0,
@@ -18,9 +18,7 @@ var PageTransitions = (function() {
 			'msAnimation' : 'MSAnimationEnd',
 			'animation' : 'animationend'
 		},
-		// animation end event name
 		animEndEventName = animEndEventNames[ Modernizr.prefixed( 'animation' ) ],
-		// support css animations
 		support = Modernizr.cssanimations;
 	
 	function init() {
@@ -30,24 +28,7 @@ var PageTransitions = (function() {
 		});
 		$btnClass = $btnrandomcor.attr('class');
 		$pages.eq( current ).addClass( 'mb-page-current' );
-		$btnrandomcor.addClass('mb-cor-orange');
-		/*$menuItems.on("click",function() {
-			console.log("menu: "+isAnimating);
-			if( isAnimating ) {
-				return false;
-			}
-			currentMenu = $(this).index() + 1;
-
-			if (currentMenu==current) {
-				return false;
-			};
-			if (currentMenu<current) {
-				nextPage(2);
-			}else{
-				nextPage(1);
-			};
-		})*/
-
+		$btnrandomcor.addClass('mb-cor-black');
 		$home.on('click', function() {
 			if(current==0){
 				return false;
@@ -61,29 +42,45 @@ var PageTransitions = (function() {
 			if( isAnimating ) {
 				return false;
 			}
-			nextPage(1);
+			nextPage(1,777);
 		});
 	}
 	
-	function nextPage(options,type) {
+	$(document).bind('mousewheel DOMMouseScroll', function(event) {
+		event.preventDefault();
+   		var delta = event.originalEvent.wheelDelta || -event.originalEvent.detail;
+	   	if (delta<0) {
+			nextPage(1,delta);
+		}else{
+			nextPage(2,delta);
+		};
+	});
+
+	function nextPage(options,delta) {
 		var animation = (options.animation) ? options.animation : options;
 		if( isAnimating ) {
 			return false;
 		}
 		isAnimating = true;
-
 		var $currPage = $pages.eq(current);
-
-		if (type==1) {
+		if (delta==1) {
 			current = 0;
 		}else{
-			if(currentMenu==0){
+			if(delta<0){
 				++current;
 			}else{
-				current=currentMenu;
+				if (delta == 777) {
+					current = $pages.length - 1;
+				} else{
+					--current;
+				};
 			}
 		};
-		
+		if (current<0 || current>($pages.length -1)) {
+			current = (current<0)?0:$pages.length -1;
+			isAnimating = false;
+			return false;
+		};
 		var $nextPage = $pages.eq( current ).addClass( 'mb-page-current' ),
 			outClass = '', inClass = '';
 			btnClass();
@@ -97,6 +94,7 @@ var PageTransitions = (function() {
 					inClass = 'mb-page-moveFromTop';
 					break;
 			}
+		$btnrandomcor.attr('class','');
 		$btnrandomcor.attr('class',$btnClass+' '+btnClass);
 
 		$currPage.addClass( outClass ).on( animEndEventName, function() {
@@ -119,15 +117,11 @@ var PageTransitions = (function() {
 			onEndAnimation( $currPage, $nextPage );
 		}
 		function btnClass () {
-			console.log('BTN CLASS');
-			switch(current){
-				case 1:
-					btnClass = 'mb-cor-black';
-					break;
-				default:
-					btnClass = 'mb-cor-orange';
-			}
-			console.log('BTN CLASS: '+btnClass);
+			if (current > 0 && current < ($pages.length -1)) {
+				btnClass = 'mb-cor-orange';
+			}else{
+				btnClass = 'mb-cor-black';
+			};
 		}
 	}
 
