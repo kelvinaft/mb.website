@@ -23,6 +23,8 @@ $cor-yellow-1 : #FFCC66;
 $cor-orange-1: #f2992e;
 $cor-black-1: #2d2d2d;
 $cor-white-1: #f4f4f4;
+$cor-purple-1: #46056a;
+$cor-fux-1: #910769;
 .mb-cor-white{color: $cor-white-1 !important;}
 .mb-cor-orange{color: $cor-orange-1 !important;}
 .mb-cor-black{color: $cor-black-1 !important;}
@@ -43,6 +45,13 @@ $cor-white-1: #f4f4f4;
         @return 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
     }
 }
+@mixin mb-gradient-1($start-cor, $end-cor) {
+    background-image: -o-linear-gradient(bottom, $start-cor 0%, $end-cor 99%);
+    background-image: -moz-linear-gradient(bottom, $start-cor 0%, $end-cor 99%);
+    background-image: -webkit-linear-gradient(bottom, $start-cor 0%, $end-cor 99%);
+    background-image: -ms-linear-gradient(bottom, $start-cor 0%, $end-cor 99%);
+    background-image: linear-gradient(to bottom, $start-cor 0%, $end-cor 99%);
+}
 small{
     padding: 0;
     margin: 0;
@@ -56,12 +65,17 @@ h1,h2,h3,h4,h5,h6{
     margin: 0;
     padding:0;
 }
-h1{font-size: 10vw;}
-h2{font-size: 7.5vw;}
-h3{font-size: 5.5vw;}
-h4{font-size: 3.5vw;}
-h5{font-size: 2.5vw;}
-h6{font-size: 2vw;}
+h1{font-size: 12vh;}
+h2{font-size: 10vh;}
+h3{font-size: 8vh;}
+h4{font-size: 6vh;}
+h5{font-size: 4vh;}
+h6{font-size: 3vh;}
+
+p{
+    font-size: 2vh;
+    text-align: justify;
+}
 
 html,body{
     font-family: "Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif;;
@@ -74,6 +88,10 @@ html,body{
 a{
     color: inherit;
     text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+    color: inherit;
 }
 ul {
     list-style: none;
@@ -88,14 +106,22 @@ ul {
 input, 
 input:active, 
 input:focus {     
+    border: none;
+    margin: 0 !important;
     outline: 0;     
     outline-style: none;     
-    outline-width: 0; 
+    outline-width: 0;
+    border: none;
+    margin: 0;
+}
+textarea{
+    border: none;
 }
 .mb-btn{
     border: none;
     background: rgba(255,255,255,0.3);
     border-width: 1px;
+    border-radius: 2px;
     color: #fff;
     display: inline-block;
     font-size: 13px;
@@ -111,7 +137,7 @@ input:focus {
     transition: all .2s ease-in-out;
 }
 .mb-btn-especial{
-    background-size: $cor-orange-1 !important;
+    background-color: $cor-orange-1 !important;
 }
 .mb-logo{
     cursor: pointer;
@@ -156,10 +182,7 @@ input:focus {
     z-index: 1;
 }
 .mb-page-1{
-    background-image: url("../images/slider1.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: center;
+    @include mb-gradient-1($cor-purple-1,#86089d);
 }
 .mb-page-5{ 
     background: $cor-black-1;
@@ -188,11 +211,14 @@ header{
 .mb-ul-vertical{
     display: flex;
     flex-direction: column;
+    li{
+        color: $cor-white-1;
+    }
     li:not(:last-child){
         margin-right: 1em;
     }
     span{
-        color: rgba($cor-black-1, .7);
+        color: rgba($cor-white-1, .7);
     }
 }
 .mb-float{
@@ -206,26 +232,111 @@ header{
 }
 /**** MB BOODY ****/
 .mb-body{
+    color: $cor-white-1;    
+    height: 100%;
+    width: 100%;
+}
+.mb-flex{
     align-items: center;
-    color: $cor-white-1;
     display: flex;
     justify-content: center;
-    height: 100%;
+}
+.mb-column{
+    flex-direction: column;
+}
+.mb-column-30{
+    width: 30vw;
+}
+.mb-column-50{
+    width: 50vw;
+}
+.mb-margin-rigth{
+    padding-right: 2em;
+    margin-right: 2em;
+}
+.mb-form{
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.mb-form-column{
+    flex-direction: column;
+}
+.mb-form-label{
+    font-size: 18px;
+    span{
+        font-size: .7em;
+        opacity: .6;
+    }
+}
+.mb-form-check{
+    align-items: center;
+    display: flex;
+    margin-top: .5em;
+    input{
+        margin-right: 1em;
+    }
+}
+.mb-form-control{
+    position: relative;
+    margin-bottom: 2em;
+    width: 49%;
+    .mb-form-label{
+        bottom: 0;  
+        left: 0;
+        pointer-events: none;
+        position: absolute;
+        transition: all .4s ease-in-out;
+    }
+    .mb-form-bar{
+        background: $cor-orange-1;
+        border-radius: 2px;
+        width: 0;
+        height: 3px;
+        transition: all .4s ease-in-out;
+    }
+    .mb-form-bar:after{
+        content: "";
+    }
+}
+.mb-form-input{
+    background: transparent;
+    //border-bottom: 4px solid rgba($cor-orange-1,.5);
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    display: block;
+    font-size:18px;
+    height: 40px;
+    width: 100%;
+}
+.mb-form-input:focus{
+    outline: none;
+}
+.mb-form-input:focus ~ label,.mb-form-input:valid ~ label{
+    transform: translateY(-32px);
+}
+.mb-form-input:focus ~ .mb-form-bar,.mb-form-input:valid ~ .mb-form-bar{
+    width: 100%;
+}
+.mb-form-control-column{
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.mb-form-text{
+    background: transparent;
+    border: 1px solid rgba($cor-white-1,.5);
+    border-radius: 4px;
+    font-size: 16px;
+    height: 15vh;
+    width: 100%;
 }
 .mb-body-logo{
-    /*-webkit-animation: move-left .4s ease both;
-    animation:  move-left .4s ease both;
-    -webkit-animation-delay: .4s;*/
     animation-delay: .4s;
     height: 100%;
-}
-#mb-logo-principal{
-}
-.mb-body-title{
-    /*text-align: left;
-    -webkit-animation: move-right .4s ease both;
-    animation:  move-right .4s ease both;*/
-    margin-left: 50px;
+    display: flex;
+    align-items: center;
 }
 /**** MB FOOTER ****/
 .mb-footer{

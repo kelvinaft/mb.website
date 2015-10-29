@@ -4,7 +4,7 @@ var PageTransitions = (function() {
 		$pages = $container.children( 'article.mb-page' ),
 		$btnrandomcor = $('#mb-icon-rdm'),
 		$home = $('#mb-home'),
-		$foo = $('#mb-foo, #mb-contact'),
+		$foo = $('#mb-foo, #mb-contact, #mb-icon-rdm'),
 		$btnClass = '',
 		pagesCount = $pages.length,
 		current = 0,
@@ -28,7 +28,7 @@ var PageTransitions = (function() {
 		});
 		$btnClass = $btnrandomcor.attr('class');
 		$pages.eq( current ).addClass( 'mb-page-current' );
-		$btnrandomcor.addClass('mb-cor-black');
+		$btnrandomcor.addClass('mb-cor-white');
 		$home.on('click', function() {
 			if(current==0){
 				return false;
@@ -120,7 +120,7 @@ var PageTransitions = (function() {
 			if (current > 0 && current < ($pages.length -1)) {
 				btnClass = 'mb-cor-orange';
 			}else{
-				btnClass = 'mb-cor-black';
+				btnClass = 'mb-cor-white';
 			};
 		}
 	}
