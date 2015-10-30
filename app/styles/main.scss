@@ -24,11 +24,40 @@ $cor-orange-1: #f2992e;
 $cor-black-1: #2d2d2d;
 $cor-white-1: #f4f4f4;
 $cor-purple-1: #46056a;
-$cor-fux-1: #910769;
+$cor-green-1: #108608;
+$cor-fux-1: #cc006a;
 .mb-cor-white{color: $cor-white-1 !important;}
 .mb-cor-orange{color: $cor-orange-1 !important;}
 .mb-cor-black{color: $cor-black-1 !important;}
-
+.mb-cor-purple{color: $cor-purple-1 !important;}
+.mb-cor-fux{color: $cor-fux-1 !important;}
+.mb-cor-blue{color: $cor-blue-1 !important;}
+.mb-cor-green{color: $cor-green-1 !important;}
+.mb-fill-white{
+    .mb-mubox-content{
+        fill: $cor-white-1;
+    }
+}
+.mb-fill-orange{
+   .mb-mubox-content{
+        fill: $cor-orange-1;
+    } 
+}
+.mb-fill-black{
+    .mb-mubox-content{
+        fill: $cor-black-1;
+    }
+}
+.mb-fill-purple{
+    .mb-mubox-content{
+        fill: $cor-purple-1;
+    }
+}
+.mb-fill-fux{
+    .mb-mubox-content{
+        fill: $cor-fux-1;
+    }
+}
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
@@ -65,16 +94,18 @@ h1,h2,h3,h4,h5,h6{
     margin: 0;
     padding:0;
 }
-h1{font-size: 12vh;}
-h2{font-size: 10vh;}
-h3{font-size: 8vh;}
-h4{font-size: 6vh;}
-h5{font-size: 4vh;}
-h6{font-size: 3vh;}
+h1{font-size: 9vw;}
+h2{font-size: 6vw;}
+h3{font-size: 4vw;}
+h4{font-size: 3vw;}
+h5{font-size: 2vw;}
+h6{font-size: 1.5vw;}
 
 p{
-    font-size: 2vh;
+    font-size: 1.5vw;
     text-align: justify;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 html,body{
@@ -186,7 +217,7 @@ textarea{
 }
 .mb-page-1{
     //@include mb-gradient-1($cor-purple-1,#86089d);
-    background-color: $cor-white-1;
+    background-color: white;
 }
 .mb-page-5{ 
     background: $cor-black-1;
@@ -209,6 +240,14 @@ header{
 .mb-header{
     margin-top: 70px;
 }
+.mb-icon-header{
+    height: 50px;
+    width: 90px;
+    cursor: pointer;
+}
+.mb-mubox-shadow{
+    fill: $cor-orange-1;
+}
 .mb-contact{
     display: flex;
     align-items: center;
@@ -227,6 +266,7 @@ header{
 }
 .mb-ul-horizontal{
     display: flex;
+    justify-content: space-between;
     li{
         text-align: center;
         width: 200px;
@@ -234,6 +274,38 @@ header{
         h6{
             margin-top: 1em;
             font-size: 1.5vh !important;
+        }
+    }
+}
+.mb-ul-list{
+    font-size: 2vh;;
+    list-style-type: square;
+    margin-top: 1em;
+    margin-left: 1.2em;
+}
+.mb-ul-block{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: space-between;
+    margin-top: 4em;
+    li{
+        width: 220px;
+        height: 130px;
+        display: flex;
+        text-align: left;
+        .mb-prin{
+            margin-left: 1em;
+            margin-right: 1em;
+            h6{
+                float: left;
+                font-size: 2vh;
+                margin-bottom: .5em;
+            }
+            p{
+                font-size: 1.5vh;
+                text-align: left;
+            }
         }
     }
 }
@@ -273,7 +345,7 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 2vh;
+    height: calc(100% - 450px);
 }
 .mb-title-content{
     margin-bottom: 2vh;
@@ -283,7 +355,8 @@ header{
     align-items: center;
     display: flex;
     justify-content: center;
-    height: 400px;
+    padding-top: 2em;
+    height: 320px;
     z-index: 9999;
 }
 .mb-flex{
@@ -293,6 +366,10 @@ header{
 }
 .mb-column{
     flex-direction: column;
+}
+.mb-column-title {
+    width: 100%;
+    justify-content: left !important;
 }
 .mb-column-30{
     width: 30vw;
@@ -436,12 +513,14 @@ header{
     -webkit-animation-delay: 0s,2.5s;
     -webkit-animation-timing-function: ease-out;
     -webkit-animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: 1, infinite;
 
     animation-name: translate-cube-in, scale-mubox;
     animation-duration: 1.25s, 1.25s;
     animation-delay: 0s,2.5s;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
+    animation-iteration-count: 1, infinite;
 }
 .mb-cube{
     opacity: 0;
@@ -607,7 +686,7 @@ header{
     }
     30%{
         opacity:1;
-        transform: scale(0.8) translateY(20px) translateX(90px);
+        transform: scale(0.9) translateY(10px) translateX(40px);
     }
     70%,100%{
         opacity:1;

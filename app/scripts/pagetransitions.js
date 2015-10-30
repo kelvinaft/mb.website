@@ -117,15 +117,22 @@ var PageTransitions = (function() {
 			onEndAnimation( $currPage, $nextPage );
 		}
 		function btnClass () {
-			if (current > 0 && current < ($pages.length -1)) {
-				btnClass = 'mb-cor-orange';
-			}else{
-				if (current!=0) {
-					btnClass = 'mb-cor-white';
-				} else{
+			switch (current){
+				case 0:
 					btnClass = 'mb-btn-especial';
-				};
-			};
+					break;
+				case 1:
+					btnClass = 'mb-cor-green';
+					break;
+				case 2:
+					btnClass = 'mb-cor-fux';
+					break;
+				case 3:
+					btnClass = 'mb-cor-blue';
+					break;
+				default:
+					btnClass = 'mb-cor-white';
+			}
 		}
 	}
 
