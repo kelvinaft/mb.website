@@ -28,7 +28,7 @@ var PageTransitions = (function() {
 		});
 		$btnClass = $btnrandomcor.attr('class');
 		$pages.eq( current ).addClass( 'mb-page-current' );
-		$btnrandomcor.addClass('mb-cor-white');
+		$btnrandomcor.addClass('mb-btn-especial');
 		$home.on('click', function() {
 			if(current==0){
 				return false;
@@ -120,7 +120,11 @@ var PageTransitions = (function() {
 			if (current > 0 && current < ($pages.length -1)) {
 				btnClass = 'mb-cor-orange';
 			}else{
-				btnClass = 'mb-cor-white';
+				if (current!=0) {
+					btnClass = 'mb-cor-white';
+				} else{
+					btnClass = 'mb-btn-especial';
+				};
 			};
 		}
 	}
