@@ -26,7 +26,8 @@
   <body>
     <header>
       <div>
-        <svg class="mb-icon-header"
+        <img id="mb-home" class="mb-icon-header" src="images/mb.logo.10.svg" alt="" width="40px">
+        <!--<svg class="mb-icon-header"
           version="1.1" 
           id="mb-home"
           xmlns="http://www.w3.org/2000/svg" 
@@ -136,10 +137,10 @@
                 c-1.581-0.79-3.175-1.42-5.08-1.544l-0.206,0.049h-0.392c-3.173,0-5.404,1.532-6.934,3H145V14.5z"/>
             </g>
           </g>
-        </svg>
+        </svg>-->
       </div>
       <div class="mb-contact">
-        <ul class="mb-ul-vertical mb-cor-black">
+        <ul id="mb-ul-contact" class="mb-ul-vertical">
           <li><strong><i class="fa fa-phone"></i> Phone: </strong><span>+55 (11) 94-066-5445</span></li>
           <li><strong><i class="fa fa-envelope"></i> Email: </strong><span>kflores.0025@gmail.com</span></li>
           <li><strong><i class="fa fa-skype"></i> Skype: </strong><span>kflorest</span></li>
@@ -151,8 +152,9 @@
     <div id="mb-container" class="mb-container">
       <article id="mb-page-1" class="mb-page mb-page-1">
         <!-- mbx sections header -->
-        <section class="mb-section mb-header mb-flex">
-          <div class="mb-img">
+        <section class="mb-section mb-column mb-flex">
+          <div class="mb-header mb-column-100">
+            <div class="mb-img">
               <img src="images/fondo-header.png" alt="">
             </div>
             <div class="mb-img-wrap"></div>
@@ -278,31 +280,14 @@
                 </g>
               </svg>
             </div>
-        </section>
-        <!-- mbx sections body-->
-        <section class="mb-section mb-body-content mb-flex">
-          <div class="mb-flex mb-column mb-column-50">
+          </div>
+          <div class="mb-flex mb-column mb-column-70 mb-body-content">
             <h4 class="mb-title-content mb-cor-orange">Sobre mubox</h4>
-            <p>
+            <p class="mb-cor-black">
               Somos uma empresa que respira varejo, fundada em 2015, junto com um equipe de profissionais especializados no desenvolvimento web. Nosso objetivo é fazer com que nossos clientes possam ter em suas mãos, em qualquer lugar e a qualquer momento, dados que tornem o gerenciamento de seu negócio algo mais simples e rápido, permitindo que a tomada de decisões seja segura e sensata.
             </p>
-            <!--<ul class="mb-ul-horizontal mb-margin-top mb-column-30">
-              <li>
-                <i class="fa fa-lock fa-4x"></i>
-                <h6>Maior segurança</h6>
-              </li>
-              <li>
-                <i class="fa fa-clock-o fa-4x"></i>
-                <h6>Acesso as 24 horas do dia</h6>
-              </li>
-              <li>
-                <i class="fa fa-dollar fa-4x"></i>
-                <h6>Baixoz custos</h6>
-              </li>
-            </ul>-->
           </div>
         </section>
-
         <!-- mbx sections footer-->
         <section id="mb-foo" class="mb-section mb-footer">
           <h6 class="mb-foot-contact">mubox / <small>contact us</small></h6>
@@ -310,8 +295,8 @@
       </article>
       <article id="mb-page-2" class="mb-page mb-page-2">
         <section class="mb-section mb-body mb-flex mb-flex-column">
-          <div class="mb-flex mb-column mb-column-30 mb-margin-rigth mb-cor-black">
-            <h3>Quienes somos</h3>
+          <div class="mb-flex mb-column mb-column-40 mb-margin-rigth mb-cor-black">
+            <h3 class="mb-column-title">Quienes somos</h3>
             <p>
               Somos uma empresa que respira varejo, fundada em 2015, junto com um equipe de profissionais especializados no desenvolvimento web. Nosso objetivo é fazer com que nossos clientes possam ter em suas mãos, em qualquer lugar e a qualquer momento, dados que tornem o gerenciamento de seu negócio algo mais simples e rápido, permitindo que a tomada de decisões seja segura e sensata.
             </p>
@@ -323,15 +308,15 @@
       </article>
       <article id="mb-page-3" class="mb-page mb-page-3">
         <section class="mb-section mb-body mb-flex mb-flex-column">
-          <div class="mb-flex mb-column mb-column-30 mb-margin-rigth mb-cor-black">
-            <h3>Como trabalhamos</h3>
+          <div class="mb-flex mb-column mb-column-40 mb-margin-rigth mb-cor-black">
+            <h3 class="mb-column-title">Como trabalhamos</h3>
             <p>
               Confiamos e investimos em profissionais que acreditam que o sucesso não é alcançado isoladamente, por isso temos orgulho de nossa equipe e trabalhamos num verdadeiro time.
             </p>
-            <h6>
+            <h6 class="mb-column-title">
               Acreditamos em algumas filosofias de trabalho
             </h6>
-            <ul class="mb-ul-list">
+            <ul class="mb-column-title mb-ul-list">
               <li>Desenvolvimento Ágil, desenvolvemos software de forma interativa e incremental valorizando</li>
               <li>Indivíduos e interação entre eles – mais que processos e ferramentas</li>
               <li>Software em funcionamento – mais que documentação abrangente</li>
@@ -343,42 +328,42 @@
             <h4 class="mb-column-title mb-cor-fux">Nossos principios</h4>
             <ul class="mb-ul-block mb-cor-black">
               <li>
-                <i class="fa fa-smile-o fa-4x"></i>
+                <i class="fa fa-smile-o fa-2x"></i>
                 <div class="mb-prin">
                   <h6>Bom humor</h6>
                   <p>Entusiasmo e atitude positiva com profissionalismo e sem preconceitos</p>
                 </div>
               </li>
               <li>
-                <i class="fa fa-paw fa-4x"></i>
+                <i class="fa fa-paw fa-2x"></i>
                 <div class="mb-prin">
                   <h6>Trabalho em equipe</h6>
                   <p>Colaboração e cooperação</p>
                 </div>
               </li>
               <li>
-                <i class="fa fa-leanpub fa-4x"></i>
+                <i class="fa fa-leanpub fa-2x"></i>
                 <div class="mb-prin">
                   <h6>Buscar aprendizado</h6>
                   <p>e exelência técnica com humildade</p>
                 </div>
               </li>
               <li>
-                <i class="fa fa-thumbs-o-up fa-4x"></i>
+                <i class="fa fa-thumbs-o-up fa-2x"></i>
                 <div class="mb-prin">
                   <h6>Fazer a coisa certa</h6>
                   <p>de forma certa, o mais rápido posivel</p>
                 </div>
               </li>
               <li>
-                <i class="fa fa-trophy fa-4x"></i>
+                <i class="fa fa-trophy fa-2x"></i>
                 <div class="mb-prin">
                   <h6>Exelencia e compromiso</h6>
                   <p>em todo o que fazemos</p>
                 </div>
               </li>
               <li>
-                <i class="fa fa-puzzle-piece fa-4x"></i>
+                <i class="fa fa-puzzle-piece fa-2x"></i>
                 <div class="mb-prin">
                   <h6>Aceitar mudanzas</h6>
                   <p>
@@ -387,21 +372,14 @@
                 </div>
               </li>
               <li>
-                <i class="fa fa-heart fa-4x"></i>
+                <i class="fa fa-hand-peace-o fa-2x"></i>
                 <div class="mb-prin">
                   <h6>Ser uma empresa confiavel</h6>
                   <p>mantendo sigilo e confidencialidade</p>
                 </div>
               </li>
               <li>
-                <i class="fa fa-hand-peace-o fa-4x"></i>
-                <div class="mb-prin">
-                  <h6>Acreditar em si mesmo</h6>
-                  <p>acreditar em que podemos fazer muito mais</p>
-                </div>
-              </li>
-              <li>
-                <i class="fa fa-rocket fa-4x"></i>
+                <i class="fa fa-rocket fa-2x"></i>
                 <div class="mb-prin">
                   <h6>Ambiente informal</h6>
                   <p>Preservar um ambiente familiar, divertido e agradavel</p>
@@ -413,8 +391,8 @@
       </article>
       <article id="mb-page-4" class="mb-page mb-page-4">
         <section class="mb-section mb-body mb-flex mb-flex-column">
-          <div class="mb-flex mb-column mb-column-30 mb-margin-rigth mb-cor-black">
-            <h3 class="mb-cor-black">Nossos projetos</h3>
+          <div class="mb-flex mb-column mb-column-40 mb-margin-rigth mb-cor-black">
+            <h3  class="mb-column-title mb-cor-black">Nossos projetos</h3>
             <p>
               O mubox ERP possui um ecossistema de módulos e funcionalidades pensados no Crecimento de sua empresa. Além dos módulos de gestão para cada setor de sua corporação, o mubox conta com parcerias e outros produtos e software de apoio como, a gestão de workflow, atendimento aos clientes, base de produtos, tributações on-line entre outros, além de integrações e parcerias com outros sistemas.
             </p>
@@ -438,7 +416,7 @@
               </h6>
               <hr>
               <p>
-                Se sua empresa está interessada em algum dos produtos oferecidos pela Bluesoft, mas ainda tem dúvidas, quer mais detalhes ou deseja conhecer melhor nossos serviços, agende uma demonstração e solicite uma visita de nossos consultores!
+                Se sua empresa está interessada em algum dos produtos oferecidos peo mubox, mas ainda tem dúvidas, quer mais detalhes ou deseja conhecer melhor nossos serviços, agende uma demonstração e solicite uma visita de nossos consultores!
               </p>
               <p class="mb-cor-orange">
                 Preencha o formulário na esquerda ou entre em contato diretamente pelo telefone <strong>(11) 940-665445</strong>.

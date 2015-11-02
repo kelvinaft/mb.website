@@ -3,9 +3,10 @@ var PageTransitions = (function() {
 	var $container = $('#mb-container'),
 		$pages = $container.children( 'article.mb-page' ),
 		$btnrandomcor = $('#mb-icon-rdm'),
+		$contact = $('#mb-ul-contact'),
 		$home = $('#mb-home'),
 		$foo = $('#mb-foo, #mb-contact, #mb-icon-rdm'),
-		$btnClass = '',
+		$btnClass, $contactClass = '',
 		pagesCount = $pages.length,
 		current = 0,
 		currentMenu = 0,
@@ -27,8 +28,10 @@ var PageTransitions = (function() {
 			$page.data( 'originalClassList', $page.attr( 'class' ) );
 		});
 		$btnClass = $btnrandomcor.attr('class');
+		$contactClass = $contact.attr('class');
 		$pages.eq( current ).addClass( 'mb-page-current' );
 		$btnrandomcor.addClass('mb-btn-especial');
+		$contact.addClass('mb-cor-white');
 		$home.on('click', function() {
 			if(current==0){
 				return false;
@@ -82,8 +85,8 @@ var PageTransitions = (function() {
 			return false;
 		};
 		var $nextPage = $pages.eq( current ).addClass( 'mb-page-current' ),
-			outClass = '', inClass = '';
-			btnClass();
+			outClass = '', inClass = '', btnClass = '', contactClass='';
+			colors();
 			switch( animation ) {
 				case 1:
 					outClass = 'mb-page-moveToTop';
@@ -96,7 +99,8 @@ var PageTransitions = (function() {
 			}
 		$btnrandomcor.attr('class','');
 		$btnrandomcor.attr('class',$btnClass+' '+btnClass);
-
+		$contact.attr('class','');
+		$contact.attr('class',$contactClass+' '+contactClass);
 		$currPage.addClass( outClass ).on( animEndEventName, function() {
 			$currPage.off( animEndEventName );
 			endCurrPage = true;
@@ -116,22 +120,27 @@ var PageTransitions = (function() {
 		if( !support ) {
 			onEndAnimation( $currPage, $nextPage );
 		}
-		function btnClass () {
+		function colors () {
 			switch (current){
 				case 0:
-					btnClass = 'mb-btn-especial';
+					btnClass = 'mb-btn-especial'
+					contactClass = 'mb-cor-white'
 					break;
 				case 1:
-					btnClass = 'mb-cor-green';
+					btnClass = 'mb-cor-green'
+					contactClass = 'mb-cor-black'
 					break;
 				case 2:
-					btnClass = 'mb-cor-fux';
+					btnClass = 'mb-cor-fux'
+					contactClass = 'mb-cor-black'
 					break;
 				case 3:
-					btnClass = 'mb-cor-blue';
+					btnClass = 'mb-cor-blue'
+					contactClass = 'mb-cor-black'
 					break;
 				default:
-					btnClass = 'mb-cor-white';
+					contactClass = 'mb-cor-white'
+					btnClass = 'mb-cor-white'
 			}
 		}
 	}

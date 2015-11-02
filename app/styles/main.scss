@@ -86,23 +86,19 @@ small{
     margin: 0;
 }
 h1,h2,h3,h4,h5,h6{
-    align-items: center;
-    display: flex;
     font-family: "gibson";
-    justify-content: center;
     font-weight: 700;
     margin: 0;
     padding:0;
 }
-h1{font-size: 9vw;}
-h2{font-size: 6vw;}
-h3{font-size: 4vw;}
-h4{font-size: 3vw;}
-h5{font-size: 2vw;}
-h6{font-size: 1.5vw;}
+h1{font-size: 120px;}
+h2{font-size: 80px;}
+h3{font-size: 60px;}
+h4{font-size: 50px;}
+h5{font-size: 40px;}
+h6{font-size: 30px;}
 
 p{
-    font-size: 1.5vw;
     text-align: justify;
     margin-top: 1em;
     margin-bottom: 1em;
@@ -110,6 +106,7 @@ p{
 
 html,body{
     font-family: "Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif;;
+    font-size: 16px;
     height: 100%;
     width: 100%;
     margin: 0;
@@ -131,6 +128,7 @@ ul {
     li{
         margin: 0;
         padding: 0;
+        transition: all .4s ease-in-out;
     }
 }
 /**** MB BUTTONS ****/
@@ -210,6 +208,7 @@ textarea{
     position: absolute;
     width: 100%;
     visibility: hidden;
+    background-color: $cor-white-1;
 }
 .mb-page-current{
     visibility: visible;
@@ -217,7 +216,7 @@ textarea{
 }
 .mb-page-1{
     //@include mb-gradient-1($cor-purple-1,#86089d);
-    background-color: white;
+    //background-color: white;
 }
 .mb-page-5{ 
     background: $cor-black-1;
@@ -238,7 +237,8 @@ header{
     z-index: 9999;
 }
 .mb-header{
-    margin-top: 70px;
+    padding-top: 70px;
+    position: relative;
 }
 .mb-icon-header{
     height: 50px;
@@ -278,7 +278,6 @@ header{
     }
 }
 .mb-ul-list{
-    font-size: 2vh;;
     list-style-type: square;
     margin-top: 1em;
     margin-left: 1.2em;
@@ -287,23 +286,30 @@ header{
     display: flex;
     flex-wrap: wrap;
     text-align: center;
-    justify-content: space-between;
-    margin-top: 4em;
+    //justify-content: space-between;
+    margin-top: 2em;
     li{
-        width: 220px;
+        width: 260px;
         height: 130px;
         display: flex;
         text-align: left;
+        .mb-prin-ico{
+            width: 60px;
+            background-color: red;
+        }
         .mb-prin{
+            display: flex;
+            flex-direction: column;
             margin-left: 1em;
-            margin-right: 1em;
+            text-align: left;
+            justify-content: left;
             h6{
-                float: left;
-                font-size: 2vh;
+                font-size: 20px;
                 margin-bottom: .5em;
             }
             p{
-                font-size: 1.5vh;
+                margin-top: 0em;
+                font-size: 16px;
                 text-align: left;
             }
         }
@@ -323,6 +329,7 @@ header{
     left: auto;
     right: 0%;
     top: -25px;
+    z-index: 0;
 }
 .mb-img-wrap{
     background-color: rgba($cor-black-1,.3);
@@ -340,12 +347,7 @@ header{
     position: relative;
 }
 .mb-body-content{
-    align-items: center;
-    color: $cor-black-1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: calc(100% - 450px);
+    height: calc(100vh - 420px);
 }
 .mb-title-content{
     margin-bottom: 2vh;
@@ -356,8 +358,8 @@ header{
     display: flex;
     justify-content: center;
     padding-top: 2em;
+    position: relative;
     height: 320px;
-    z-index: 9999;
 }
 .mb-flex{
     align-items: center;
@@ -374,8 +376,20 @@ header{
 .mb-column-30{
     width: 30vw;
 }
+.mb-column-40{
+    width: 40vw;
+}
 .mb-column-50{
     width: 50vw;
+}
+.mb-column-60{
+    width: 60vw;
+}
+.mb-column-70{
+    width: 70vw;
+}
+.mb-column-100{
+    width: 100vw;
 }
 .mb-margin-rigth{
     padding-right: 2em;
@@ -495,7 +509,7 @@ header{
     }
 }
 .mb-cube-container{
-    height: 100%;
+    //height: 100%;
 }
 .mb-cube > .mb-cube-stroke > path{
     fill: white;
@@ -508,19 +522,19 @@ header{
 }
 .mb-mubox{
     opacity: 0;
-    -webkit-animation-name: translate-cube-in, scale-mubox;
-    -webkit-animation-duration: 1.25s, 1.25s;
-    -webkit-animation-delay: 0s,2.5s;
+    -webkit-animation-name: translate-cube-in;
+    -webkit-animation-duration: 1.25s;
+    -webkit-animation-delay: 0s;
     -webkit-animation-timing-function: ease-out;
     -webkit-animation-fill-mode: forwards;
-    -webkit-animation-iteration-count: 1, infinite;
+    -webkit-animation-iteration-count: 1;
 
-    animation-name: translate-cube-in, scale-mubox;
-    animation-duration: 1.25s, 1.25s;
-    animation-delay: 0s,2.5s;
+    animation-name: translate-cube-in;
+    animation-duration: 1.25s;
+    animation-delay: 0s;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
-    animation-iteration-count: 1, infinite;
+    animation-iteration-count: 1;
 }
 .mb-cube{
     opacity: 0;
@@ -677,20 +691,6 @@ header{
     70%,100%{
         opacity:1;
         transform: translateY(0)
-    }
-}
-@keyframes scale-mubox{
-    0%{
-        opacity:1;
-        transform: scale(1)
-    }
-    30%{
-        opacity:1;
-        transform: scale(0.9) translateY(10px) translateX(40px);
-    }
-    70%,100%{
-        opacity:1;
-        transform: scale(1)
     }
 }
 /* Responsive: Portrait tablets and up */
