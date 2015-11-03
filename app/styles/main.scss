@@ -17,17 +17,20 @@ $font-gibson: url("../fonts/Gibson-SemiBold-webfont.woff");
 }
 
 // mbx colors
-$cor-red-1 : #FF3333;
-$cor-blue-1 : #0099FF;
-$cor-yellow-1 : #FFCC66;
+$cor-red-1: #FF3333;
+$cor-blue-1: #425584;
+$cor-acero-1: #36465d;
+$cor-yellow-1: #FFCC66;
 $cor-orange-1: #f2992e;
+$cor-orange-2: #b85041;
 $cor-black-1: #2d2d2d;
 $cor-white-1: #f4f4f4;
-$cor-purple-1: #46056a;
-$cor-green-1: #108608;
+$cor-purple-1: #7a54a7;
+$cor-green-1: #56bc8a;
 $cor-fux-1: #cc006a;
 .mb-cor-white{color: $cor-white-1 !important;}
 .mb-cor-orange{color: $cor-orange-1 !important;}
+.mb-cor-block{color: $cor-orange-2 !important;}
 .mb-cor-black{color: $cor-black-1 !important;}
 .mb-cor-purple{color: $cor-purple-1 !important;}
 .mb-cor-fux{color: $cor-fux-1 !important;}
@@ -88,8 +91,9 @@ small{
 h1,h2,h3,h4,h5,h6{
     font-family: "gibson";
     font-weight: 700;
-    margin: 0;
+    margin: .5em;
     padding:0;
+    text-align: center;
 }
 h1{font-size: 120px;}
 h2{font-size: 80px;}
@@ -99,14 +103,17 @@ h5{font-size: 40px;}
 h6{font-size: 30px;}
 
 p{
-    text-align: justify;
+    //text-align: justify;
     margin-top: 1em;
     margin-bottom: 1em;
+    font-size: 18px;
+    font-weight: 100;
 }
 
 html,body{
     font-family: "Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif;;
     font-size: 16px;
+    font-family: "roboto";
     height: 100%;
     width: 100%;
     margin: 0;
@@ -148,7 +155,7 @@ textarea{
 }
 .mb-btn{
     border: none;
-    background: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,1);
     border-width: 1px;
     border-radius: 2px;
     color: #fff;
@@ -201,7 +208,8 @@ textarea{
     padding-right: 1vw;
     position: relative;
     overflow: hidden;
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
 }
 .mb-page{
     height: 100%;
@@ -213,12 +221,44 @@ textarea{
 .mb-page-current{
     visibility: visible;
     z-index: 1;
+    .mb-title{
+        opacity: 0;
+        animation-name: translate-text-left;
+        animation-duration: .7s;
+        animation-delay: .2s;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+        animation-iteration-count: 1;
+    }
+    .mb-paragraph{
+        opacity: 0;
+        animation-name: translate-text-rigth;
+        animation-duration: .7s;
+        animation-delay: .2s;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+        animation-iteration-count: 1;
+    }
 }
 .mb-page-1{
-    //@include mb-gradient-1($cor-purple-1,#86089d);
-    //background-color: white;
+    background-image: url('../images/mb.wall.3.jpg');
 }
-.mb-page-5{ 
+.mb-page-2{
+    background-color: $cor-orange-1;
+}
+.mb-page-3{
+    background-color: $cor-green-1;
+}
+.mb-page-4{
+    background-color: $cor-orange-2;
+}
+.mb-page-5{
+    background-color: $cor-blue-1;
+}
+.mb-page-6{ 
+    background: $cor-purple-1;
+}
+.mb-page-7{
     background: $cor-black-1;
 }
 /**** MB HEADER ****/
@@ -278,20 +318,22 @@ header{
     }
 }
 .mb-ul-list{
-    list-style-type: square;
     margin-top: 1em;
     margin-left: 1.2em;
+    text-align: center;
 }
 .mb-ul-block{
     display: flex;
     flex-wrap: wrap;
     text-align: center;
-    //justify-content: space-between;
+    justify-content: space-between;
     margin-top: 2em;
     li{
+        align-items: center;
         width: 260px;
         height: 130px;
         display: flex;
+        flex-direction: column;
         text-align: left;
         .mb-prin-ico{
             width: 60px;
@@ -359,7 +401,6 @@ header{
     justify-content: center;
     padding-top: 2em;
     position: relative;
-    height: 320px;
 }
 .mb-flex{
     align-items: center;
@@ -391,6 +432,33 @@ header{
 .mb-column-100{
     width: 100vw;
 }
+.mb-row-50{
+    height: 100vh;
+}
+.mb-row-100{
+    height: 100vh;
+}
+.mb-text-center{
+    text-align: center;
+}
+/*.mb-text-in-1{
+    .mb-title{
+        animation-name: translate-text-left;
+        animation-duration: .7s;
+        animation-delay: 1s;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite;
+    }
+    .mb-paragraph{
+        animation-name: translate-text-rigth;
+        animation-duration: .7s;
+        animation-delay: 1s;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite;
+    }
+}*/
 .mb-margin-rigth{
     padding-right: 2em;
     margin-right: 2em;
@@ -479,9 +547,9 @@ header{
 }
 /**** MB FOOTER ****/
 .mb-footer{
-    background: $cor-black-1;
+    //background-color: $cor-orange-1;
     bottom: 0;
-    color: $cor-white-1;
+    color: $cor-orange-1;
     text-align: center;
     padding-top: .5em;
     padding-bottom: .5em;
@@ -490,11 +558,16 @@ header{
     animation:  move-top .4s ease both;
     -webkit-animation-delay: .4s;
     animation-delay: .4s;
+    width: 100vw;
     .mb-foot-contact{
         cursor: pointer !important;
         display: flex;
         align-items: center;
         justify-content: center;
+        margin: 0 !important;
+        small{
+            color: rgba($cor-white-1,1);
+        }
     }
 }
 /**** LOGO ****/
@@ -616,17 +689,23 @@ header{
 }
 @-webkit-keyframes moveToTop {
     from { }
-    to { -webkit-transform: translateY(-100%); }
+    to { -webkit-transform: translateY(-50%); }
 }
 @keyframes moveToTop {
     from { }
-    to { -webkit-transform: translateY(-100%); transform: translateY(-100%); }
+    to { 
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
 }
 @-webkit-keyframes moveFromBottom {
     from { -webkit-transform: translateY(100%); }
 }
 @keyframes moveFromBottom {
-    from { -webkit-transform: translateY(100%); transform: translateY(100%); }
+    from{ 
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%); 
+    }
 }
 @-webkit-keyframes moveToBottom {
     from { }
@@ -691,6 +770,26 @@ header{
     70%,100%{
         opacity:1;
         transform: translateY(0)
+    }
+}
+@keyframes translate-text-left{
+    from{
+        opacity: 0;
+        -webkit-transform: translateY(-30%);
+    }
+    to{
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+    }
+}
+@keyframes translate-text-rigth{
+    from{
+        opacity: 0;
+        -webkit-transform: translateY(30%);
+    }
+    to{
+        opacity: 1;
+        -webkit-transform: translateY(0%);
     }
 }
 /* Responsive: Portrait tablets and up */
