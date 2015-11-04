@@ -5,7 +5,7 @@ var PageTransitions = (function() {
 		$btnrandomcor = $('#mb-icon-rdm'),
 		$contact = $('#mb-ul-contact'),
 		$home = $('#mb-home'),
-		$foo = $('#mb-contact, #mb-icon-rdm'),
+		$foo = $('#mb-icon-rdm'),
 		$quienes = $('#mb-foo'),
 		$btnClass, $contactClass = '',
 		pagesCount = $pages.length,
@@ -31,8 +31,8 @@ var PageTransitions = (function() {
 		$btnClass = $btnrandomcor.attr('class');
 		$contactClass = $contact.attr('class');
 		$pages.eq( current ).addClass( 'mb-page-current' );
-		$btnrandomcor.addClass('mb-cor-blue');
-		$contact.addClass('mb-cor-white');
+		$btnrandomcor.addClass('mb-cor-blue mb-translate-left-100');
+		$contact.addClass('mb-translate-contact-left-100');
 		$home.on('click', function() {
 			if(current==0){
 				return false;
@@ -106,8 +106,8 @@ var PageTransitions = (function() {
 			}
 		$btnrandomcor.attr('class','');
 		$btnrandomcor.attr('class',$btnClass+' '+btnClass);
-		//$contact.attr('class','');
-		//$contact.attr('class',$contactClass+' '+contactClass);
+		$contact.attr('class','');
+		$contact.attr('class',$contactClass+' '+contactClass);
 		$currPage.addClass( outClass ).on( animEndEventName, function() {
 			$currPage.off( animEndEventName );
 			endCurrPage = true;
@@ -130,26 +130,32 @@ var PageTransitions = (function() {
 		function colors () {
 			switch (current){
 				case 0:
-					btnClass = 'mb-cor-blue'
+					contactClass = 'mb-translate-contact-left-100'
+					btnClass = 'mb-cor-blue mb-translate-left-100'
 					break;
 				case 1:
-					btnClass = 'mb-cor-orange'
+					contactClass = 'mb-translate-contact-left-100'
+					btnClass = 'mb-cor-orange mb-translate-left-100'
 					break;
 				case 2:
-					btnClass = 'mb-cor-green'
+					contactClass = 'mb-translate-contact-left-100'
+					btnClass = 'mb-cor-green mb-translate-left-100'
 					break;
 				case 3:
-					btnClass = 'mb-cor-block'
+					contactClass = 'mb-translate-contact-left-100'
+					btnClass = 'mb-cor-block mb-translate-left-100'
 					break;
 				case 4:
-					btnClass = 'mb-cor-blue'
+					contactClass = 'mb-translate-contact-left-100'
+					btnClass = 'mb-cor-blue mb-translate-left-100'
 					break;
 				case 5:
-					btnClass = 'mb-cor-purple'
+					contactClass = 'mb-translate-contact-left-100'
+					btnClass = 'mb-cor-purple mb-translate-left-100'
 					break;
 				default:
-					contactClass = 'mb-cor-white'
-					btnClass = 'mb-cor-orange'
+					contactClass = 'mb-translate-contact-rigth-100'
+					btnClass = 'mb-translate-rigth-100'
 			}
 		}
 	}
