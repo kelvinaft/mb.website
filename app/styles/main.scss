@@ -248,24 +248,36 @@ textarea{
         animation-fill-mode: forwards;
         animation-iteration-count: 1;
     }
-    .mb-ul-list>li{
-        animation-name: translate-text-top;
-        animation-duration: .7s;
-        animation-delay: .2s;
-        animation-timing-function: ease-out;
-        animation-fill-mode: forwards;
-        animation-iteration-count: 1;
+    .mb-ul-list{
+        li{
+            animation-name: translate-text-top;
+            animation-duration: .7s;
+            animation-delay: .2s;
+            animation-timing-function: ease-out;
+            animation-fill-mode: forwards;
+            animation-iteration-count: 1;
+        }
+        li:nth-child(2){animation-delay: .4s;}
+        li:nth-child(3){animation-delay: .6s;}
+        li:nth-child(4){animation-delay: .8s;}
     }
-    .mb-ul-list>li:nth-child(2){
-        animation-delay: .4s;
+    
+    .mb-ul-principios{
+        li{
+            animation-name: expancion-mb-icon;
+            animation-duration: .2s;
+            animation-delay: .4s;
+            animation-timing-function: ease-out;
+            animation-fill-mode: forwards;
+            animation-iteration-count: 1;
+        }
+        li:nth-child(2){animation-delay:.5s;}
+        li:nth-child(3){animation-delay:.6s;}
+        li:nth-child(4){animation-delay:.7s;}
+        li:nth-child(5){animation-delay:.8s;}
+        li:nth-child(6){animation-delay:.9s;}
     }
-    .mb-ul-list>li:nth-child(3){
-        animation-delay: .6s;
-    }
-    .mb-ul-list>li:nth-child(4){
-        animation-delay: .8s;
-    }
-    .mb-ul-circle{
+    /*.mb-ul-circle{
         li{
             animation-name: explotion-mb-icon;
             animation-duration: 1s;
@@ -273,7 +285,7 @@ textarea{
             animation-fill-mode: forwards;
             animation-iteration-count: 1;
         }
-    }
+    }*/
 }
 .mb-page-1{
     background-image: url('../images/mb.wall.3.jpg');
@@ -320,6 +332,35 @@ header{
     height: 50px;
     width: 90px;
     cursor: pointer;
+}
+.mb-menu-lateral{
+    align-items: center;
+    height: 100%;
+    display: flex;
+    margin-left: 2vw;
+    left: 0;
+    top: 0; 
+    position: absolute;
+    z-index: 9999;
+    li{
+        border: 3px solid $cor-white-1;
+        border-radius: 50%;
+        cursor: pointer;
+        height: 20px;
+        width: 20px;
+    }
+    li:hover{
+        transform: translateX(5px);
+        box-shadow: -8px 2px 0px 0px rgba($cor-black-1, .5);
+    }
+    li:not(:last-child){
+        margin-bottom: 1em;
+    }
+}
+.mb-menu-current{
+    transform: translateX(5px);
+    box-shadow: -8px 2px 0px 0px rgba($cor-black-1, .5);
+    background-color: $cor-white-1;
 }
 .mb-mubox-shadow{
     fill: $cor-orange-1;
@@ -377,6 +418,29 @@ header{
         box-shadow: 10px 10px 0px 0px rgba($cor-black-1, 0.75);
     }
 }
+.mb-ul-principios{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    .mb-prin{
+        transition: all .4s ease-in-out;
+    }
+    li{
+        width: 20vh;
+        transform: scale(0);
+        display: flex;
+        flex-direction: column;
+    }
+    img{
+        cursor: pointer;
+        height: 12vh;
+    }
+    img:hover ~ .mb-prin{
+        text-shadow: 5px 5px 0px rgba($cor-black-1, 0.75);
+        transform: translateY(20px);
+    }
+}
+/*
 .mb-ul-circle{
     width: 550px;
     display: flex;
@@ -431,7 +495,7 @@ header{
     li:nth-child(3){
         transform: translateY(-100px) translateX(-100px);
     }
-}
+}*/
 .mb-ul-block{
     display: flex;
     flex-wrap: wrap;
@@ -939,7 +1003,13 @@ header{
     from{}
     to{
         opacity: 1;
-        transform: scale(1) translateY(0) translateX(0);
+        transform: translateY(0) translateX(0);
+    }
+}
+@keyframes expancion-mb-icon{
+    from{}
+    to{
+        transform: scale(1);
     }
 }
 @keyframes translate-down{

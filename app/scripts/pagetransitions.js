@@ -5,6 +5,7 @@ var PageTransitions = (function() {
 		$btnrandomcor = $('#mb-icon-rdm'),
 		$contact = $('#mb-ul-contact'),
 		$home = $('#mb-home'),
+		$menu = $('#mb-menu>li'),
 		$foo = $('#mb-icon-rdm'),
 		$quienes = $('#mb-foo'),
 		$btnClass, $contactClass = '',
@@ -24,6 +25,10 @@ var PageTransitions = (function() {
 		support = Modernizr.cssanimations;
 	
 	function init() {
+		console.log($menu);
+		$menu.each(function() {
+			console.log('aaa');
+		})
 		$pages.each( function() {
 			var $page = $( this );
 			$page.data( 'originalClassList', $page.attr( 'class' ) );
@@ -71,6 +76,7 @@ var PageTransitions = (function() {
 		if( isAnimating ) {
 			return false;
 		}
+
 		isAnimating = true;
 		var $currPage = $pages.eq(current);
 		if (delta==1) {
@@ -86,6 +92,7 @@ var PageTransitions = (function() {
 				};
 			}
 		};
+		//$menu[current].addClass('mb-menu-current');
 		if (current<0 || current>($pages.length -1)) {
 			current = (current<0)?0:$pages.length -1;
 			isAnimating = false;
