@@ -25,17 +25,14 @@ var PageTransitions = (function() {
 		support = Modernizr.cssanimations;
 	
 	function init() {
-		console.log($menu);
-		$menu.each(function() {
-			console.log('aaa');
-		})
-		$pages.each( function() {
-			var $page = $( this );
+		$pages.each(function() {
+			var $page = $(this);
 			$page.data( 'originalClassList', $page.attr( 'class' ) );
 		});
 		$btnClass = $btnrandomcor.attr('class');
 		$contactClass = $contact.attr('class');
 		$pages.eq( current ).addClass( 'mb-page-current' );
+		$menu.eq(current).addClass('mb-menu-current');
 		$btnrandomcor.addClass('mb-cor-blue mb-translate-left-100');
 		$contact.addClass('mb-translate-contact-left-100');
 		$home.on('click', function() {
@@ -76,9 +73,9 @@ var PageTransitions = (function() {
 		if( isAnimating ) {
 			return false;
 		}
-
 		isAnimating = true;
 		var $currPage = $pages.eq(current);
+		var $currMenu = $menu.eq(current);
 		if (delta==1) {
 			current = 0;
 		}else{
@@ -92,13 +89,13 @@ var PageTransitions = (function() {
 				};
 			}
 		};
-		//$menu[current].addClass('mb-menu-current');
 		if (current<0 || current>($pages.length -1)) {
 			current = (current<0)?0:$pages.length -1;
 			isAnimating = false;
 			return false;
 		};
-		var $nextPage = $pages.eq( current ).addClass( 'mb-page-current' ),
+		var $nextPage = $pages.eq(current).addClass('mb-page-current'),
+			$nextMenu = $menu.eq(current).addClass('mb-menu-current'),
 			outClass = '', inClass = '', btnClass = '', contactClass='';
 			colors();
 			switch( animation ) {
@@ -115,6 +112,7 @@ var PageTransitions = (function() {
 		$btnrandomcor.attr('class',$btnClass+' '+btnClass);
 		$contact.attr('class','');
 		$contact.attr('class',$contactClass+' '+contactClass);
+		$currMenu.removeClass('mb-menu-current');
 		$currPage.addClass( outClass ).on( animEndEventName, function() {
 			$currPage.off( animEndEventName );
 			endCurrPage = true;
@@ -125,6 +123,7 @@ var PageTransitions = (function() {
 
 		$nextPage.addClass( inClass ).on( animEndEventName, function() {
 			$nextPage.off( animEndEventName );
+			console.log(endCurrPage + ' curr: '+current);
 			endNextPage = true;
 			if( endCurrPage ) {
 				onEndAnimation( $currPage, $nextPage );

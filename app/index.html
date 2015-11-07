@@ -66,9 +66,10 @@
         <input id="mb-icon-rdm" type="button" value="Contact us" class="mb-btn mb-cor-white">
       </div>
     </header>
-    <div id="mb-menu" class="mb-menu-lateral">
-      <ul>
-        <li class="mb-menu-current"></li>
+    <div class="mb-menu-lateral">
+      <ul id="mb-menu">
+        <li></li>
+        <li></li>
         <li></li>
         <li></li>
         <li></li>
@@ -208,13 +209,14 @@
         </section>
         <!-- mbx sections footer-->
         <section id="mb-foo" class="mb-footer">
-          <i class="fa fa-arrow-down fa-2x"></i>
-          <h5 class="mb-foot-contact mb-cor-orange">mubox / <small>quienes somos</small></h5>
+          <!---->
+          <h5 class="mb-foot-contact mb-cor-orange"> mubox / <small>quienes somos <i class="fa fa-arrow-down"></i></small></h5>
         </section>
       </article>
-      <article id="mb-page-2" class="mb-page mb-page-2">
+      <article id="mb-page-2" 
+        class="mb-page mb-page-2">
         <section class="mb-section mb-body mb-flex mb-flex-column">
-          <div class="mb-flex mb-column mb-column-40 mb-text-justify">
+          <div class="mb-flex mb-column mb-column-70 mb-text-justify">
             <img class="mb-ico" src="images/mb.ico.1.svg" alt="" height="120px">
             <h3 class="mb-title">Quienes somos</h3>
             <p class="mb-paragraph">
@@ -228,7 +230,7 @@
       </article>
       <article id="mb-page-3" class="mb-page mb-page-3">
         <section class="mb-section mb-body mb-flex mb-flex-column">
-          <div class="mb-flex mb-column mb-column-40 mb-text-justify">
+          <div class="mb-flex mb-column mb-column-70 mb-text-justify">
             <img class="mb-ico" src="images/mb.ico.2.svg" alt="" height="120px">
             <h3 class="mb-title">Como Trabajamos</h3>
             <p class="mb-paragraph">
@@ -242,26 +244,26 @@
       </article>
       <article id="mb-page-4" class="mb-page mb-page-4">
         <section class="mb-section mb-body mb-flex mb-flex-column">
-          <div class="mb-flex mb-column mb-column-100 mb-text-center">
+          <div class="mb-flex mb-column mb-column-70">
             <h3 class="mb-title">Filosofias de trabajo</h3>
             <ul class="mb-ul-list">
               <li>
-                <img src="images/mb.ico.1.svg" alt="" height="120px">
+                <img src="images/mb.ico.1.svg" alt="">
                 <h6>Desarrollo Ágil</h6>
                 <p>Desarrollamos software de forma interactiva e incremental</p>
               </li>
               <li>
-                <img src="images/mb.ico.1.svg" alt="" height="120px">
+                <img src="images/mb.ico.1.svg" alt="">
                 <h6>Interacción Profesional</h6>
                 <p>Dos o mas mentes son mejor que una</p>
               </li>
               <li>
-                <img src="images/mb.ico.1.svg" alt="" height="120px">
+                <img src="images/mb.ico.1.svg" alt="">
                 <h6>Colaboración con el cliente</h6>
                 <p>Más que una negociacion de contrato</p>
               </li>
               <li>
-                <img src="images/mb.ico.1.svg" alt="" height="120px">
+                <img src="images/mb.ico.1.svg" alt="">
                 <h6>Atención a los cambios</h6>
                 <p>Más que solo seguir un plano</p>
               </li>
@@ -316,7 +318,7 @@
       </article>
       <article id="mb-page-6" class="mb-page mb-page-6">
         <section class="mb-section mb-body mb-flex mb-column">
-          <div class="mb-flex mb-column mb-column-50 mb-text-justify">
+          <div class="mb-flex mb-column mb-column-70 mb-text-justify">
             <h3 class="mb-title">Nuestros Proyectos</h3>
             <p class="mb-paragraph">
               <strong>Pymbox</strong> es un servicio desarrollado por el fabuloso equipo de mubox para manejar la gestion de pequeñas y grandes empresas, que no cuenten con la infraestructura adecuada para mantener un sistema localmente. Brinda todos los servicios y herramientas necesarias para obtener datos criticos que son necesarios para una correcta toma de decisiones, permite tener acceso a sus datos en cualquier momento y lugar, cuenta con interfaces web y mobil multi plataforma, actualizaciones constantes y un grandioso Soporte.
@@ -333,37 +335,41 @@
       <article id="mb-page-7" class="mb-page mb-page-7">
         <!-- mbx sections body-->
         <section class="mb-section mb-body mb-flex mb-column">
-            <img src="images/mb.ico.9.svg" alt="buen humor" height="150">
+            <!--<img src="images/mb.ico.9.svg" alt="buen humor" height="150">-->
             <h4>Solicite una demostración</h4>
-            <div class="mb-flex mb-form mb-column-30">
-              <div class="mb-form-control">
+            <div class="mb-flex mb-form mb-column-70">
+              <div class="mb-form-control mb-form-control-mediun">
                 <input class="mb-form-input" type="text" id="mb-name" required>
                 <div class="mb-form-bar"></div>
                 <label class="mb-form-label" for="mb-name">Nombre <span>* nombre completo</span></label>
               </div>
-              <div class="mb-form-control">
+              <div class="mb-form-control mb-form-control-mediun">
                 <input class="mb-form-input" type="text" id="mb-email" required>
                 <div class="mb-form-bar"></div>
                 <label class="mb-form-label" for="mb-email">Email <span>* email de contacto valido</span></label>
               </div>
-              <div class="mb-form-control">
+              <div class="mb-form-control mb-form-control-mediun">
                 <input class="mb-form-input" type="text" id="mb-phone" required>
                 <div class="mb-form-bar"></div>
                 <label class="mb-form-label" for="mb-phone">Telefono <span>* (51)999-999999</span></label>
               </div>
-              <div class="mb-form-control">
+              <div class="mb-form-control mb-form-control-mediun">
                 <input class="mb-form-input" type="text" id="mb-empresa" required>
                 <div class="mb-form-bar"></div>
                 <label class="mb-form-label" for="mb-empresa">Empresa <span>* Nombre comercial</span></label>
               </div>
-              <div class="mb-form-control">
+              <div class="mb-form-control mb-form-control-mediun">
                 <input class="mb-form-input" type="text" id="mb-phone" required>
                 <div class="mb-form-bar"></div>
                 <label class="mb-form-label" for="mb-phone">Asunto <span> Asunto de su solicitud</span></label>
               </div>
-              <div class="mb-form-control-column">
+              <div class="mb-form-control mb-form-control-large">
+                <input class="mb-form-input" type="text" id="mb-message" required>
+                <div class="mb-form-bar"></div>
                 <label class="mb-form-label" for="mb-message">Mensaje <span>* Su mensaje</span></label>
-                <textarea required class="mb-form-text" rows="8" id="mb-message"></textarea>
+
+                <!--<label class="mb-form-label" for="mb-message">Mensaje <span>* Su mensaje</span></label>
+                <textarea required class="mb-form-text" rows="8" id="mb-message"></textarea>-->
               </div>
               <div class="mb-form-control">
                 <label  class="mb-form-check">
