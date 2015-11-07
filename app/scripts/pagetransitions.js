@@ -35,6 +35,23 @@ var PageTransitions = (function() {
 		$menu.eq(current).addClass('mb-menu-current');
 		$btnrandomcor.addClass('mb-cor-blue mb-translate-left-100');
 		$contact.addClass('mb-translate-contact-left-100');
+		$menu.on('click', function() {
+			if(isAnimating) {
+				return false;
+			}
+			currentMenu = $(this).index();
+			if (currentMenu==current) {
+				return false;
+			};
+			if (currentMenu==0) {
+				nextPage(2,1);
+			};
+			if (currentMenu<current) {
+				nextPage(2,-1);
+			}else{
+				nextPage(1,-1);
+			};
+		});
 		$home.on('click', function() {
 			if(current==0){
 				return false;
@@ -61,6 +78,9 @@ var PageTransitions = (function() {
 	$(document).bind('mousewheel DOMMouseScroll', function(event) {
 		event.preventDefault();
    		var delta = event.originalEvent.wheelDelta || -event.originalEvent.detail;
+	   	if (isAnimating) {
+	   		return false;
+	   	};
 	   	if (delta<0) {
 			nextPage(1,delta);
 		}else{
@@ -80,7 +100,12 @@ var PageTransitions = (function() {
 			current = 0;
 		}else{
 			if(delta<0){
-				++current;
+				if(currentMenu!=0){
+					current=currentMenu;
+					currentMenu=0;
+				}else{
+					++current;
+				}
 			}else{
 				if (delta == 777) {
 					current = $pages.length - 1;
@@ -123,7 +148,6 @@ var PageTransitions = (function() {
 
 		$nextPage.addClass( inClass ).on( animEndEventName, function() {
 			$nextPage.off( animEndEventName );
-			console.log(endCurrPage + ' curr: '+current);
 			endNextPage = true;
 			if( endCurrPage ) {
 				onEndAnimation( $currPage, $nextPage );
