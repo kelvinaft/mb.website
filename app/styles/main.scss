@@ -154,7 +154,7 @@ textarea{
     border: none;
 }
 .mb-btn{
-    border: none;
+    border: none !important;
     background: rgba(255,255,255,1);
     border-width: 1px;
     border-radius: 2px;
@@ -716,6 +716,13 @@ header{
     align-items: center;
     flex-wrap: wrap;
     justify-content: flex-start;
+}
+.mb-form-mail{
+    width: 400px !important;
+    input{
+        border-radius: 4px;
+        font-weight: 900 !important;
+    }
 }
 .mb-form-column{
     flex-direction: column;
